@@ -1,8 +1,10 @@
 # LLVM Dead Store Eliminator
 
-An out-of-tree LLVM pass (new Pass Manager, LLVM 22.1.1) that eliminates
-redundant local stores — a store to a pointer that's immediately overwritten
-with no intervening load, call, or branch.
+An out-of-tree LLVM pass (new Pass Manager) that eliminates redundant local
+stores — a store to a pointer that's immediately overwritten with no
+intervening load, call, or branch.
+
+**Tested environment:** Homebrew LLVM 22.1.1 · Apple Clang 22 · Apple M2 (arm64) · macOS
 
 ## Build
 

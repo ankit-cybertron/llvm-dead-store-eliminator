@@ -8,10 +8,10 @@
 |---|---|
 | Functions processed | 7 |
 | Total stores before | 14 |
-| Dead stores eliminated | 6 |
+| Dead stores eliminated | 7 |
 | IR instruction count before | 106 |
-| IR instruction count after | 100 |
-| Reduction | **5.7%** |
+| IR instruction count after | 99 |
+| Reduction | **6.6%** |
 
 ## Per-Function Breakdown
 
@@ -23,11 +23,7 @@
 | `store_then_call` | **0** | Call invalidates tracking — correctly kept ✅ |
 | `cross_block_dead` | **0** | Cross-block — needs v2/MemorySSA ✅ |
 | `multi_local` | **2** | Dead inits for `a` and `b` ✅ |
-| `struct_dead_store` | **1** | `pt.x=0` dead; `pt.y=0` missed¹ |
-
-¹ At `-O0`, clang emits a fresh `getelementptr` for every struct field access,
-so the two `pt.y` stores have different `Value*` keys and the dead init is not
-detected. Sound false-negative; GEP-identity-aware tracking deferred to v2.
+| `struct_dead_store` | **2** | Both `pt.x=0` and `pt.y=0` eliminated ✅ |
 
 ## Before / After
 
