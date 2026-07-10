@@ -1,0 +1,17 @@
+# Build output
+build/
+
+# Generated IR files
+real-world/input.ll
+real-world/input_dse.ll
+real-world/dse_log.txt
+
+# lit test output
+test/Output/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
